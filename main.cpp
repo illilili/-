@@ -7,7 +7,7 @@ int eval(char exp[]);
 
 int main(void)
 {
-	char* s = (char*)"(2+3)*4+9";
+	char* s = (char*)"(2+3)*4+9";  // 문자열을 문자배열처럼 사용
 	char r[100];
 
 	printf("중위표시수식 %s \n", s);
@@ -21,9 +21,9 @@ int main(void)
 
 	int result;
 
-	printf("후위표기식은 82/3-32*+\n");
-	result = eval((char*)"82/3-32*+");
-	printf("결과값은 %d\n", result);
+	//printf("후위표기식은 82/3-32*+\n");
+	//result = eval((char*)"82/3-32*+");
+	//printf("결과값은 %d\n", result);
 
 	printf("후위표기식은 %s\n", r);
 	result = eval(r);

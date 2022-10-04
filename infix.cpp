@@ -30,7 +30,7 @@ int infix_to_postfix(char exp[], char result[])
 		case '+': case '-': case '*': case '/': // 연산자
 											    // 스택에 있는 연산자의 우선순위가 더 크거나 같으면 출력
 			while (!is_empty(&s) && (prec(ch) <= prec(peek(&s)))) {
-				// printf("%c", pop(&s));
+				//printf("%c", pop(&s));
 				result[n] = pop(&s);
 				printf("%c", result[n]);
 				n++;
