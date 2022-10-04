@@ -20,7 +20,8 @@ int is_full(StackType* s) {
 		return 1;
 	else return 0; */
 
-	return (s->top == MAX_STACK_SIZE - 1);
+	// return (s->top == MAX_STACK_SIZE - 1);
+	return (s->top == s->capacity - 1);
 }
 
 int is_empty(StackType* s) {
@@ -32,11 +33,19 @@ void push(StackType* s, element item) {
 	// ++(s->top); // top을 증가
 	// s->data[s->top] = item;
 	if (is_full(s)) {
-		fprintf(stderr, "스택 포화 에러\n");
-		// exit(1);
-		return;
-	}
+		// fprintf(stderr, "스택 포화 에러\n");
+		printf("스택 확장\n");
 
+		s->capacity *= 2;
+		s->data = (element*)realloc(
+			s->data,
+			s->capacity * sizeof(element));
+		if (s->data == NULL) {
+			fprintf(stderr, "메모리 재할당 오류");
+			return;
+		}
+		//return;
+	}
 	s->data[++(s->top)] = item;
 }
 
